@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class shared_Preference extends AppCompatActivity {
-    public static final String MyPREFERENCES = "MyPrefs" ;
+    public static final String MyPREFERENCES = "MyPrefs";
     SharedPreferences sharedpreferences;
 
     @Override
@@ -23,7 +23,7 @@ public class shared_Preference extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-    FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -35,7 +35,7 @@ public class shared_Preference extends AppCompatActivity {
         Button savee = (Button)findViewById(R.id.save);
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
 
-        String restoredText = sharedpreferences.getString("name", null);
+        String restoredText = sharedpreferences.getString("edit", null);
         if (restoredText != null) {
             EditText sh_editt = (EditText)findViewById(R.id.sh_edit);
             sh_editt.setText(restoredText);
@@ -48,9 +48,9 @@ public class shared_Preference extends AppCompatActivity {
              EditText sh_editt = (EditText)findViewById(R.id.sh_edit);
              String n  = sh_editt.getText().toString();
 
-             editor.putString("name", n);
+             editor.putString("edit", n);
              editor.commit();
-             Toast.makeText(getBaseContext(), "Thanks", Toast.LENGTH_LONG).show();
+             Toast.makeText(getBaseContext(), "Done", Toast.LENGTH_SHORT).show();
         }
         });
     }
