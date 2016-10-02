@@ -11,16 +11,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 public class Storage extends AppCompatActivity {
-    String data, i2 = "Textview";
+    String data, i2 = "Textview", file = "deepak", temp;
     Button readd, writee;
     EditText int_storagevieww;
     TextView tv;
-    private String file = "mydata";
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
@@ -60,10 +58,10 @@ public class Storage extends AppCompatActivity {
                 data = int_storagevieww.getText().toString();
 
                 try {
-                    FileOutputStream fOut = openFileOutput(file, MODE_PRIVATE);
-                    fOut.write( data.getBytes() );
-                    fOut.close();
-                    Toast.makeText( getBaseContext(), "file saved", Toast.LENGTH_SHORT ).show();
+                    FileOutputStream writeoup = openFileOutput(file, MODE_PRIVATE);
+                    writeoup.write( data.getBytes() );
+                    writeoup.close();
+                    Toast.makeText( getApplicationContext(), "file saved", Toast.LENGTH_SHORT ).show();
                 }
                 catch (Exception e) {
                     e.printStackTrace();
@@ -74,15 +72,15 @@ public class Storage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try{
-                    FileInputStream fin = openFileInput(file);
-                    int c;
-                    String temp = "";
+                    FileInputStream writein = openFileInput(file);
+                    int opop;
+                    temp = "";
 
-                    while( (c = fin.read()) != -1){
-                        temp = temp + Character.toString((char)c);
+                    while( (opop = writein.read()) != -1){
+                        temp = temp + Character.toString((char)opop);
                     }
                     tv.setText( temp );
-                    Toast.makeText(getBaseContext(),"File Read", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Read", Toast.LENGTH_SHORT).show();
                 }
                 catch(Exception e){
                     e.printStackTrace();

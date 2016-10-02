@@ -13,8 +13,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class shared_Preference extends AppCompatActivity {
-    public static final String MyPREFERENCES = "MyPrefs";
+    private static final String MyPREFERENCES = "YoYo";
     SharedPreferences sharedpreferences;
+    String yo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,13 +45,13 @@ public class shared_Preference extends AppCompatActivity {
         savee.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            SharedPreferences.Editor editor = sharedpreferences.edit();
+             SharedPreferences.Editor writable = sharedpreferences.edit();
              EditText sh_editt = (EditText)findViewById(R.id.sh_edit);
-             String n  = sh_editt.getText().toString();
+             yo  = sh_editt.getText().toString();
 
-             editor.putString("edit", n);
-             editor.commit();
-             Toast.makeText(getBaseContext(), "Done", Toast.LENGTH_SHORT).show();
+             writable.putString("edit", yo);
+             writable.commit();
+             Toast.makeText(getApplicationContext(), "Done", Toast.LENGTH_SHORT).show();
         }
         });
     }

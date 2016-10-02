@@ -28,9 +28,9 @@
         android:layout_height="wrap_content"
         android:text="Read"
         android:id="@+id/read"
-        android:layout_marginBottom="43dp"
+        android:layout_marginBottom="37dp"
         android:background="#0000ff"
-        android:layout_marginStart="70dp"
+        android:layout_marginStart="43dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true" />
 

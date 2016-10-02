@@ -32,79 +32,66 @@ public class  MainActivity extends AppCompatActivity {
         updatee = (Button)findViewById(R.id.update);
         deletee = (Button)findViewById(R.id.delete);
 
-        INSERTTDATA();
-        SHOWWDATA();
-        UPDATEEDATA();
-        DELETEEDATA();
-    }
-
-    public  void INSERTTDATA() {
         insertt.setOnClickListener( new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        boolean check_inser = base_data.insertData( name.getText().toString(), rollno.getText().toString(), semester.getText().toString() );
-                        if(check_inser == true)
-                            Toast.makeText(getApplicationContext(), "Inserted", Toast.LENGTH_SHORT).show();
-                        else
-                            Toast.makeText(getApplicationContext(), "Not Inserted", Toast.LENGTH_SHORT).show();
-                    }
-                });
-    }
+            @Override
+            public void onClick(View v) {
+                boolean check_inser = base_data.insertData( name.getText().toString(), rollno.getText().toString(), semester.getText().toString() );
+                if(check_inser == true)
+                    Toast.makeText(getApplicationContext(), "Inserted", Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(getApplicationContext(), "Not Inserted", Toast.LENGTH_SHORT).show();
+            }
+        });
 
-    public void UPDATEEDATA() {
         updatee.setOnClickListener( new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        boolean check_up = base_data.updateData(name.getText().toString(), rollno.getText().toString(), semester.getText().toString());
-                        if(check_up == true)
-                            Toast.makeText(getApplicationContext(), "Update", Toast.LENGTH_SHORT).show();
-                        else
-                            Toast.makeText(getApplicationContext(), "Not Updated", Toast.LENGTH_SHORT).show();
-                    }
-                });
-    }
+            @Override
+            public void onClick(View v) {
+                boolean check_up = base_data.updateData(name.getText().toString(), rollno.getText().toString(), semester.getText().toString());
+                if(check_up == true)
+                    Toast.makeText(getApplicationContext(), "Update", Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(getApplicationContext(), "Not Updated", Toast.LENGTH_SHORT).show();
+            }
+        });
 
-    public void DELETEEDATA() {
         deletee.setOnClickListener( new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Integer deletedRows = base_data.deleteData(rollno.getText().toString());
-                        if(deletedRows > 0)
-                            Toast.makeText(getApplicationContext(), "Deleted", Toast.LENGTH_SHORT).show();
-                        else
-                            Toast.makeText(getApplicationContext(), "Not Deleted", Toast.LENGTH_SHORT).show();
-                    }
-                });
-    }
+            @Override
+            public void onClick(View v) {
+                Integer no_of_del_row = base_data.deleteData(rollno.getText().toString());
+                if(no_of_del_row > 0)
+                    Toast.makeText(getApplicationContext(), "Deleted", Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(getApplicationContext(), "Not Deleted", Toast.LENGTH_SHORT).show();
+            }
+        });
 
-    public void SHOWWDATA() {
         showw.setOnClickListener( new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Cursor anss = base_data.getAllData();
-                        if(anss.getCount() == 0) {
-                            disp("Error", "No Data");
-                            return;
-                        }
+            @Override
+            public void onClick(View v) {
+                Cursor anss = base_data.getAllData();
+                if(anss.getCount() == 0) {
+                    disp("Error", "No Data");
+                    return;
+                }
 
-                        StringBuffer temp = new StringBuffer();
-                        while (anss.moveToNext()) {
-                            temp.append("Name :" + anss.getString(0) + "\n");
-                            temp.append("Roll No :" + anss.getString(1) + "\n");
-                            temp.append("Semester :" + anss.getString(2) + "\n\n");
-                        }
+                StringBuffer temp = new StringBuffer();
+                while (anss.moveToNext()) {
+                    temp.append("Name :" + anss.getString(0) + "\n");
+                    temp.append("Roll No :" + anss.getString(1) + "\n");
+                    temp.append("Semester :" + anss.getString(2) + "\n\n");
+                }
 
-                        disp("Data", temp.toString());
-                    }
-                });
+                disp("Data", temp.toString());
+            }
+        });
     }
 
-    public void disp(String title, String Message){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setCancelable(true);
-        builder.setTitle(title);
-        builder.setMessage(Message);
-        builder.show();
+    public void disp(String head, String text){
+        AlertDialog.Builder gradle = new AlertDialog.Builder(this);
+        gradle.setCancelable(true);
+        gradle.setTitle(head);
+        gradle.setMessage(text);
+        gradle.show();
     }
 
     @Override
