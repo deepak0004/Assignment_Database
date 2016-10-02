@@ -57,7 +57,7 @@ public class Starting_Acti extends AppCompatActivity {
         {
             public void onClick(View v)
             {
-                startActivity( new Intent(getApplicationContext(), Ext_Storage.class) );
+                startActivity( new Intent(getApplicationContext(), Main2Activity.class) );
             }
         });
         usingsqll.setOnClickListener(new Button.OnClickListener()

@@ -9,58 +9,60 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.lenovo.assignment_3.Ext_Storage"
-    tools:showIn="@layout/activity_ext__storage"
+    tools:context="com.example.lenovo.assignment_3.Main2Activity"
+    tools:showIn="@layout/activity_main2"
     android:background="#009961">
 
     <TextView
         android:layout_width="120dp"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="External Storage"
-        android:id="@+id/textView5"
+        android:id="@+id/textView7"
         android:background="#ff9d00"
         android:gravity="center"
+        android:layout_marginTop="33dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:background="#FFFFFF"
-        android:id="@+id/ext_storagevieww"
-        android:layout_below="@+id/textView5"
         android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/textView5" />
+        android:layout_alignParentEnd="true" />
+    <EditText
+        android:layout_width="20dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/textView7"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="54dp"
+        android:layout_alignEnd="@+id/textView7"
+        android:id="@+id/ext_storagevieww" />
 
     <TextView
-        android:layout_width="40dp"
-        android:layout_height="60dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/txtview_wri"
-        android:layout_below="@+id/ext_storagevieww"
-        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/write"
+        android:layout_marginBottom="61dp"
+        android:layout_alignEnd="@+id/textView7"
         android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Read"
-        android:id="@+id/read"
-        android:layout_marginStart="121dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:background="#0000ff" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Write"
         android:id="@+id/write"
-        android:layout_marginEnd="129dp"
+        android:background="#0000ff"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="45dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/txtview_wri"
-        android:background="#0000ff" />
+        android:layout_alignEnd="@+id/txtview_wri" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Read"
+        android:id="@+id/read"
+        android:background="#0000ff"
+        android:layout_alignTop="@+id/write"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="39dp" />
 
 </RelativeLayout>
