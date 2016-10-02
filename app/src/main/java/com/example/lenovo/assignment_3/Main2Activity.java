@@ -1,3 +1,10 @@
+/*
+getExternalFilesDir()
+It returns the path to files folder inside Android/data/data/your_package/ on your SD card. It is used to store any required files for your app (e.g. images downloaded from web or cache files). Once the app is uninstalled, any data stored in this folder is gone too.
+
+getExternalStorageDirectory()
+It returns the root path to your SD card (e.g mnt/sdcard/). If you save data on this path and uninstall the app, that data won't be lost.
+*/
 package com.example.lenovo.assignment_3;
 
 import android.os.Environment;
@@ -20,7 +27,7 @@ public class Main2Activity extends AppCompatActivity {
     Button readd, writee;
     EditText ext_storagevieww;
     TextView tv;
-    String filename = "deepak.txt";
+    String filename = "deepak";
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
@@ -61,8 +68,8 @@ public class Main2Activity extends AppCompatActivity {
 
     public void write(){
         //File sdCard = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
-        //File sdCard = Environment.getExternalStorageDirectory();
-        File sdCard = getExternalFilesDir(null);
+        File sdCard = Environment.getExternalStorageDirectory();
+        //File sdCard = getExternalFilesDir(null);
         File f = new File(sdCard, filename);
 
         try{
@@ -86,8 +93,8 @@ public class Main2Activity extends AppCompatActivity {
 
     public void read(){
         //File sdCard = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
-        //File sdCard = Environment.getExternalStorageDirectory();
-        File sdCard = getExternalFilesDir( null );
+        File sdCard = Environment.getExternalStorageDirectory();
+        //File sdCard = getExternalFilesDir( null );
         File file = new File( sdCard, filename );
 
         StringBuilder text = new StringBuilder();
